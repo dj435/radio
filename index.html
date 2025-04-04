@@ -30,8 +30,15 @@
       flex-direction: column;
     }
 
+ @font-face {
+    font-family: 'DS-Digital';
+    src: url('fonts/DS-DIGIB.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .display {
-    background-image: repeating-conic-gradient(white 0% 25%, gray 0% 50%);
+   background-image: repeating-conic-gradient(white 0% 25%, gray 0% 50%);
  background-position: 0 0, 32px 32px;
  background-size: 2px 2px;
   padding: 2vh 3vw;
@@ -41,6 +48,7 @@
   max-width: 350px;
   text-align: center;
   margin-bottom: 7vh;
+font-family: 'DS-Digital', sans-serif;
   font-size: 6vw;
   box-shadow: -5px 5px 7px 0px rgba(0,0,0,0.75) inset, 5px -5px 7px 0px rgba(0,0,0,0.75) inset, 5px 5px 3px 0px rgba(0,0,0,0.75);
 }
