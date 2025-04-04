@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio APK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+		html, body {
+    overflow: hidden;
+}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: gold;
+            position: relative;
+        }
+		@font-face {
+    font-family: 'DS-Digital';
+    src: url('fonts/DS-DIGIB.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+        .contenedor {
+            position: relative;
+            width: 90vw;
+            max-width: 400px;
+        }
+        .contenedor img {
+            width: 100%;
+            height: auto;
+            display: block;
+		
+        }
+        .boton {
+            position: absolute;
+            width: 65px;
+            height: 50px;
+            background-color: rgba(255, 0, 0, 0); /* Invisible */
+            border: 0px solid pink;
+            cursor: pointer;
+        }
+
+        /* Botones para cambiar dial */
+        #anterior { top: 63%; left: 18%; }
+        #siguiente { top: 63%; right: 18%; }
+
+        /* Botón play/pausa */
+        #play-pausa { top: 63%; left: 50%; transform: translateX(-50%); }
+
+        /* Botones de volumen */
+        #volumen-mas { top: 49%; right: 42%; }
+        #volumen-menos { bottom: 18%; right: 42%; }
+
+        /* Botones para cambiar fondo (20% más abajo que los de dial) */
+        #fondo-izquierda { top: 89%; left: 20%; }
+        #fondo-derecha { top: 89%; right: 20%; }
+
+        .info-radio {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            background-color: none;
+        }
+        .info-radio .dial {
+            font-weight: bold;
+			font-family: 'DS-Digital', sans-serif;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 5px;
+        }
+        .info-radio .numero {
+            font-size: 140px;
+            color: black;
+            line-height: 1;
+        }
+        .info-radio .mhz {
+            font-size: 20px;
+            line-height: 1.8;
+            padding-bottom: 12px;
+        }
+        .info-radio .nombre {
+            font-size: 24px;
+            color: black;
+			background-color: rgba(255, 0, 0, 0.7);
+            padding: 8px 15px; /* arriba/abajo - derecha/izquierda */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <img src="https://img12.pixhost.to/images/1416/583487654_laradio.png" alt="Radio">
+
+        <!-- Botones para cambiar dial -->
+        <button id="anterior" class="boton" onclick="cambiarRadio(-1)"></button>
+        <button id="siguiente" class="boton" onclick="cambiarRadio(1)"></button>
+
+        <!-- Botón de play/pausa -->
+        <button id="play-pausa" class="boton" onclick="togglePlay()"></button>
+
+        <!-- Botones de volumen -->
+        <button id="volumen-mas" class="boton" onclick="cambiarVolumen(0.1)"></button>
+        <button id="volumen-menos" class="boton" onclick="cambiarVolumen(-0.1)"></button>
+
+        <!-- Botones para cambiar fondo -->
+        <button id="fondo-izquierda" class="boton" onclick="cambiarFondo(-1)"></button>
+        <button id="fondo-derecha" class="boton" onclick="cambiarFondo(1)"></button>
+
+        <!-- Info de la radio -->
+        <div class="info-radio">
+            <div class="dial" id="dial">
+                <span class="numero">101.5</span><span class="mhz">MHz</span>
+            </div>
+            <div class="nombre" id="nombre">Aspen</div>
+        </div>
+
+        <!-- Audio -->
+        <audio id="player"></audio>
+    </div>
+<script src="radios.js"></script>
+    <script>
+
+        const coloresFondo = ["yellow", "gray", "blue", "red", "green", "magenta", "dodgerblue", "purple"];
+        let indiceRadio = 0;
+        let enReproduccion = false;
+        let indiceFondo = 0;
+
+        const player = document.getElementById('player');
+        const dial = document.getElementById('dial');
+        const nombre = document.getElementById('nombre');
+
+        function cambiarRadio(direccion) {
+            indiceRadio += direccion;
+            if (indiceRadio < 0) indiceRadio = radios.length - 1;
+            if (indiceRadio >= radios.length) indiceRadio = 0;
+            reproducirRadio();
+        }
+
+        function cambiarVolumen(cambio) {
+            let nuevoVolumen = player.volume + cambio;
+            if (nuevoVolumen > 1) nuevoVolumen = 1;
+            if (nuevoVolumen < 0) nuevoVolumen = 0;
+            player.volume = nuevoVolumen;
+            console.log(`Volumen: ${(player.volume * 100).toFixed(0)}%`);
+        }
+
+        function togglePlay() {
+            if (enReproduccion) {
+                player.pause();
+            } else {
+                player.play().catch(e => console.log("Autoplay bloqueado:", e));
+            }
+            enReproduccion = !enReproduccion;
+        }
+
+        function cambiarFondo(direccion) {
+            indiceFondo += direccion;
+            if (indiceFondo < 0) indiceFondo = coloresFondo.length - 1;
+            if (indiceFondo >= coloresFondo.length) indiceFondo = 0;
+            document.body.style.backgroundColor = coloresFondo[indiceFondo];
+        }
+
+        function reproducirRadio() {
+            const radioActual = radios[indiceRadio];
+            player.src = radioActual.url;
+            if (enReproduccion) {
+                player.play().catch(e => console.log("Autoplay bloqueado:", e));
+            }
+            dial.innerHTML = `<span class="numero">${radioActual.dial}</span><span class="mhz">MHz</span>`;
+            nombre.textContent = radioActual.nombre;
+        }
+
+        // Inicializar sin reproducir
+        window.onload = () => {
+            reproducirRadio();
+        };
+    </script>
+</body>
+</html>
