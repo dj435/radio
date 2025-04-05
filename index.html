@@ -9,18 +9,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radio APK CSS</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    html, body {
-      height: 100%;
-      width: 100%;
+
+body {
+
       overflow: hidden;
       background-color: gold;
       font-family: Arial, sans-serif;
@@ -41,104 +36,101 @@
    background-image: repeating-conic-gradient(white 0% 25%, gray 0% 50%);
  background-position: 0 0, 32px 32px;
  background-size: 2px 2px;
-  padding: 2vh 3vw;
+  padding: 2px 3px;
   border-radius: 10px;
   border: 12px ridge rgba(12,12,12,0.9);
-  width: 90vw;
-  max-width: 350px;
+  width: 450px;
+  max-height: 300px;
   text-align: center;
-  margin-bottom: 12vh;
-font-family: 'DS-Digital', sans-serif;
-  font-size: 6vw;
+  margin-bottom: 40px;
+  font-size: 6px;
   box-shadow: -5px 5px 7px 0px rgba(0,0,0,0.75) inset, 5px -5px 7px 0px rgba(0,0,0,0.75) inset, 5px 5px 3px 0px rgba(0,0,0,0.75);
 }
-
+     .display .live {
+      
+      position: relative;
+      font-size: 25px;
+      font-family: "Arial Black", Gadget, sans-serif;
+      color: red;
+      top: -280px; left: 180px;
+      text-shadow: 3px 2px 4px rgba(0,0,0,0.8);
+ 
+  
+    }
 
 
     .display .dial {
-      font-size: 25vw;
+      font-size: 170px;
 	  color: rgba(0,0,10,0.8);
       font-family: 'DS-Digital', sans-serif;
-      line-height: 1.1;
-	  text-shadow: 3px 2px 4px rgba(0,0,0,0.8);
+     text-shadow: 3px 2px 4px rgba(0,0,0,0.8);
+      padding: 20px 0px 10px 0px;
     }
 
     .display .mhz {
-      font-size: 4vw;
+      font-size: 20px;
       font-family: "Arial Black", Gadget, sans-serif;
       color: black;
     }
+    
+
 
     .display .nombre {
-      font-size: 5vw;
+      font-size: 30px;
       font-weight: bold;
      font-family: "Arial Black", Gadget, sans-serif;
       color: white;
-      margin-top: 1vh;
+      margin-bottom: 10px;
       background-color: rgba(255, 0, 0, 0.9);
-      padding: 1vh 2vw;
+      padding: 1px 20px;
       border-radius: 5px;
       display: inline-block;
-      width: 100%;
+      width: 300;
     }
 
     .control-circular {
-      width: 75vw;
-      max-width: 350px;
-      height: 75vw;
-      max-height: 350px;
-      background: radial-gradient(circle at 30% 30%, #333, #111);
+      width: 200px;
+
+      height: 200px;
+
+      background: none;
+      border: 60px solid rgba(30, 30, 30);
       border-radius: 50%;
       display: grid;
       place-items: center;
       position: relative;
-      box-shadow: inset -2px -2px 4px rgba(0,0,0,0.5),
-              inset 2px 2px 6px rgba(255,255,255,0.1),
-              5px 5px 3px 0px rgba(0,0,0,0.75);
+      box-shadow: none;
+      background: radial-gradient(circle at 30% 30%, red, #111);
     }
 
  .boton {
   position: absolute;
-  width: 23%;
-  height: 23%;
-  background: radial-gradient(circle at 30% 30%, #555, #111); 
-  border: 1px solid #000;
-  border-radius: 50%;
-  color: white;
-  font-size: 5vw;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: inset -2px -2px 4px rgba(0,0,0,0.5),
-              inset 2px 2px 6px rgba(255,255,255,0.1),
-              2px 2px 5px rgba(0,0,0,0.7);
-			  transition: transform 0.2s ease;
-}
-.boton:active {
-  transform: scale(0.95);
-  outline: none;
+      
+
 	
 }
 
-    #volumen-mas { top: 10%; left: 40%; font-size: 4vw; }
-    #volumen-menos { bottom: 10%; left: 40%; font-size: 4vw;}
-    #anterior { left: 10%; top: 40%; }
-    #siguiente { right: 10%; top: 40%; }
+    .boton:active {
+  transform: scale(0.95);
+
+}
+    
+#volumen-mas { top: -50px; left: 50px; font-size: 30px; background: none; color: white; border: none;}
+#volumen-menos { bottom: -50px; left: 60px; font-size: 30px;background: none; color: white;border: none;}
+#anterior { left: -60px; top: 80px; font-size: 40px; background: none; color: white;border: none;}
+#siguiente { right: -60px; top: 80px; font-size: 40px; background: none; color: white;border: none;}
 
     /* Botón de play/pausa al centro si se desea */
     #play-pausa {
       position: absolute;
-      width: 25%;
-      height: 25%;
-      background: radial-gradient(circle at 30% 30%, #555, #111);
-      color: white;
-      font-size: 5vw;
+      width: 70px;
+      height: 70px;
+      
+      color: black;
+      font-size: 40px;
       border: 1px solid black;
       border-radius: 50%;
-      cursor: pointer;
-      box-shadow: inset -2px -2px 4px rgba(0,0,0,0.5),
-              inset 2px 2px 6px rgba(255,255,255,0.1),
-              2px 2px 8px rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
+
     }
 #play-pausa:active {
   transform: scale(0.95);
@@ -150,12 +142,14 @@ font-family: 'DS-Digital', sans-serif;
 	
 	#fondo-cambio {
       
-  background: radial-gradient(circle at 30% 30%, red, crimson);
-  bottom: 15%;
-  right: 15%;
-  font-size: 2.3vw;
-  width: 15%;
-  height: 15%;
+   color: white;   
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #555, #111);
+  bottom: 80px;
+  right: 20px;
+  font-size: 14px;
+  width: 40px;
+  height: 40px;
 }
   </style>
 </head>
@@ -166,6 +160,7 @@ font-family: 'DS-Digital', sans-serif;
     <div class="dial" id="dial">101.5</div>
     <div class="mhz">MHz</div>
     <div class="nombre" id="nombre">Aspen</div>
+    <div class="live">live</div>
   </div>
 
   <!-- Control circular -->
