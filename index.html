@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset=utf-8 />
-<title>Editor JavaScript online - www.cubicfactory.com</title>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Radio APK CSS</title>
   <style>
-
-
-body {
-
+    body {
       overflow: hidden;
       background-color: gold;
       font-family: Arial, sans-serif;
@@ -25,45 +15,43 @@ body {
       flex-direction: column;
     }
 
- @font-face {
-    font-family: 'DS-Digital';
-    src: url('fonts/DS-DIGIB.TTF') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+    @font-face {
+      font-family: 'DS-Digital';
+      src: url('fonts/DS-DIGIB.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
-.display {
-   background-image: repeating-conic-gradient(white 0% 25%, gray 0% 50%);
- background-position: 0 0, 32px 32px;
- background-size: 2px 2px;
-  padding: 2px 3px;
-  border-radius: 10px;
-  border: 12px ridge rgba(12,12,12,0.9);
-  width: 450px;
-  max-height: 300px;
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 6px;
-  box-shadow: -5px 5px 7px 0px rgba(0,0,0,0.75) inset, 5px -5px 7px 0px rgba(0,0,0,0.75) inset, 5px 5px 3px 0px rgba(0,0,0,0.75);
-}
-     .display .live {
-      
+    .display {
+      background-image: repeating-conic-gradient(white 0% 25%, gray 0% 50%);
+      background-position: 0 0, 32px 32px;
+      background-size: 2px 2px;
+      padding: 2px 3px;
+      border-radius: 10px;
+      border: 12px ridge rgba(12,12,12,0.9);
+      width: 450px;
+      max-height: 300px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 6px;
+      box-shadow: -5px 5px 7px 0px rgba(0,0,0,0.75) inset, 5px -5px 7px 0px rgba(0,0,0,0.75) inset, 5px 5px 3px 0px rgba(0,0,0,0.75);
+    }
+
+    .display .live {
       position: relative;
       font-size: 25px;
       font-family: "Arial Black", Gadget, sans-serif;
       color: red;
-      top: -280px; left: 180px;
+      top: -280px;
+      left: 180px;
       text-shadow: 3px 2px 4px rgba(0,0,0,0.8);
- 
-  
     }
-
 
     .display .dial {
       font-size: 170px;
-	  color: rgba(0,0,10,0.8);
+      color: rgba(0,0,10,0.8);
       font-family: 'DS-Digital', sans-serif;
-     text-shadow: 3px 2px 4px rgba(0,0,0,0.8);
+      text-shadow: 3px 2px 4px rgba(0,0,0,0.8);
       padding: 20px 0px 10px 0px;
     }
 
@@ -72,85 +60,77 @@ body {
       font-family: "Arial Black", Gadget, sans-serif;
       color: black;
     }
-    
-
 
     .display .nombre {
       font-size: 30px;
       font-weight: bold;
-     font-family: "Arial Black", Gadget, sans-serif;
+      font-family: "Arial Black", Gadget, sans-serif;
       color: white;
       margin-bottom: 10px;
       background-color: rgba(255, 0, 0, 0.9);
       padding: 1px 20px;
       border-radius: 5px;
       display: inline-block;
-      width: 300;
+      width: 300px;
     }
 
     .control-circular {
       width: 200px;
-
       height: 200px;
-
-      background: none;
+      background: radial-gradient(circle at 30% 30%, red, #111);
       border: 60px solid rgba(30, 30, 30);
       border-radius: 50%;
       display: grid;
       place-items: center;
       position: relative;
-      box-shadow: none;
-      background: radial-gradient(circle at 30% 30%, red, #111);
     }
 
- .boton {
-  position: absolute;
-      
-
-	
-}
+    .boton {
+      position: absolute;
+      background: none;
+      color: white;
+      border: none;
+    }
 
     .boton:active {
-  transform: scale(0.95);
+      transform: scale(0.95);
+    }
 
-}
-    
-#volumen-mas { top: -50px; left: 50px; font-size: 30px; background: none; color: white; border: none;}
-#volumen-menos { bottom: -50px; left: 60px; font-size: 30px;background: none; color: white;border: none;}
-#anterior { left: -60px; top: 80px; font-size: 40px; background: none; color: white;border: none;}
-#siguiente { right: -60px; top: 80px; font-size: 40px; background: none; color: white;border: none;}
+    #volumen-mas { top: -50px; left: 50px; font-size: 30px; }
+    #volumen-menos { bottom: -50px; left: 60px; font-size: 30px; }
+    #anterior { left: -60px; top: 80px; font-size: 40px; }
+    #siguiente { right: -60px; top: 80px; font-size: 40px; }
 
-    /* Botón de play/pausa al centro si se desea */
     #play-pausa {
       position: absolute;
       width: 70px;
       height: 70px;
-      
       color: black;
       font-size: 40px;
       border: 1px solid black;
       border-radius: 50%;
-
+      background: white;
     }
-#play-pausa:active {
-  transform: scale(0.95);
-  box-shadow: inset 2px 2px 6px rgba(0,0,0,0.7);
-}
+
+    #play-pausa:active {
+      transform: scale(0.95);
+      box-shadow: inset 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    #fondo-cambio {
+      color: white;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #555, #111);
+      bottom: 80px;
+      right: 20px;
+      font-size: 14px;
+      width: 40px;
+      height: 40px;
+    }
+
     audio {
       display: none;
     }
-	
-	#fondo-cambio {
-      
-   color: white;   
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #555, #111);
-  bottom: 80px;
-  right: 20px;
-  font-size: 14px;
-  width: 40px;
-  height: 40px;
-}
   </style>
 </head>
 <body>
@@ -169,7 +149,7 @@ body {
     <button id="volumen-menos" class="boton" onclick="cambiarVolumen(-0.1)">VOL-</button>
     <button id="anterior" class="boton" onclick="cambiarRadio(-1)">◀</button>
     <button id="siguiente" class="boton" onclick="cambiarRadio(1)">▶</button>
-	<button id="fondo-cambio" class="boton" onclick="cambiarFondo()">color</button>
+    <button id="fondo-cambio" class="boton" onclick="cambiarFondo()">color</button>
     <button id="play-pausa" onclick="togglePlay()">▶‖</button>
   </div>
 
@@ -177,14 +157,13 @@ body {
 
   <script src="radios.js"></script>
   <script>
-  
-      const coloresFondo = ["gold", "crimson", "silver", "blue", "red", "green", "magenta", "dodgerblue", "purple", "Chocolate", "lime"];
-let indiceFondo = 0;
+    const coloresFondo = ["gold", "crimson", "silver", "blue", "red", "green", "magenta", "dodgerblue", "purple", "Chocolate", "lime"];
+    let indiceFondo = 0;
 
-function cambiarFondo() {
-  indiceFondo = (indiceFondo + 1) % coloresFondo.length;
-  document.body.style.backgroundColor = coloresFondo[indiceFondo];
-}
+    function cambiarFondo() {
+      indiceFondo = (indiceFondo + 1) % coloresFondo.length;
+      document.body.style.backgroundColor = coloresFondo[indiceFondo];
+    }
 
     const player = document.getElementById('player');
     const dial = document.getElementById('dial');
@@ -228,9 +207,6 @@ function cambiarFondo() {
       reproducirRadio();
     };
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
