@@ -265,7 +265,33 @@ function cambiarFondo() {
       reproducirRadio();
     };
       
-      
+        let wakeLock = null;
+
+  async function activarWakeLock() {
+    try {
+      if ('wakeLock' in navigator) {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('WakeLock activado');
+
+        wakeLock.addEventListener('release', () => {
+          console.log('WakeLock liberado');
+        });
+      } else {
+        console.log('WakeLock no está soportado en este navegador');
+      }
+    } catch (err) {
+      console.error(`${err.name}, ${err.message}`);
+    }
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    if (wakeLock !== null && document.visibilityState === "visible") {
+      activarWakeLock();
+    }
+  });
+
+  // Activar WakeLock al cargar la página
+  window.onload = activarWakeLock;
   </script>
 
 </body>
