@@ -187,9 +187,9 @@ font-family: 'DS-Digital', sans-serif;
 
   <!-- Display superior -->
   <div class="display">
-    <div class="dial" id="dial">101.5</div>
+    <div class="dial" id="dial">94.3</div>
     <div class="mhz">MHz</div>
-    <div class="nombre" id="nombre">Aspen</div>
+    <div class="nombre" id="nombre">Radio Disney</div>
   </div>
 
   <!-- Control circular -->
@@ -261,9 +261,10 @@ function cambiarFondo() {
       nombre.textContent = radioActual.nombre;
     }
 
-    window.onload = () => {
-      reproducirRadio();
-    };
+window.onload = () => {
+  activarWakeLock();
+  reproducirRadio(); // ahora sí arranca con la primer radio
+};
       
         let wakeLock = null;
 
@@ -290,8 +291,7 @@ function cambiarFondo() {
     }
   });
 
-  // Activar WakeLock al cargar la página
-  window.onload = activarWakeLock;
+
   </script>
 
 </body>
